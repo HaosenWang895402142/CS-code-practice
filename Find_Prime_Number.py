@@ -1,7 +1,26 @@
 # find some number N's all prime number with O(n)
-
 import datetime
 
+def eratosthenes(n):
+    tstart = datetime.datetime.now()
+    multiples = []
+    prime = []
+    for i in range(2, n+1):
+        if i not in multiples:
+            prime.append(i)
+            for j in range(i*i, n+1, i):
+                multiples.append(j)
+
+    tend = datetime.datetime.now()
+    time = tend - tstart
+    print(time.microseconds)
+    print(len(prime))
+    print(prime)
+
+
+############################################
+
+#another way
 def Create_List(N):
 
     List = []
@@ -26,9 +45,9 @@ def Remove_Element(List,multiple_List):
             List.remove(i)
     return List
 
-def main():
+def prime_Number(N):
 
-    N = eval(input("enter a integer: "))
+    N = int(N)
     tstart = datetime.datetime.now()
     List = Create_List(N)
     for A in List:
@@ -40,8 +59,11 @@ def main():
     tend = datetime.datetime.now()
     time = tend - tstart
     print(time.microseconds)
-    print(List)
     print(len(List))
+    print(List)
 
-main()
 
+eratosthenes(4000)
+prime_Number(4000)
+
+# After compare two ways, Prime_Number use less time than eratosthenes.......
