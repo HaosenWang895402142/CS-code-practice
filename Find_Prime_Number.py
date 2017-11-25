@@ -1,4 +1,4 @@
-# find some number N's all prime number with O(n)
+# find some number N's all prime number 
 import datetime
 
 def eratosthenes(n):
